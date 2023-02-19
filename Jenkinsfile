@@ -13,8 +13,12 @@ pipeline {
                         bat 'pip install -r requirements.txt'
                         bat 'python -m unittest'
                     }
+                    bat "git checkout dev"
+                    bat "git merge ${branchName}"
+                    bat "git push origin dev"
                 }
             }
         }
+
     }
 }
