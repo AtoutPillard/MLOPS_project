@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Building and unit testing'){
             steps{
-                bat 'git checkout ${env.GIT_BRANCH}'
+                bat "git checkout ${env.GIT_BRANCH}"
                 dir('backend_rating') {
                     bat 'pip install -r requirements.txt'
                 }
@@ -14,9 +14,9 @@ pipeline {
             steps {
                 bat 'git checkout dev'
                 bat 'git pull origin dev'
-                bat 'git merge ${env.GIT_BRANCH}'
+                bat "git merge ${env.GIT_BRANCH}"
                 bat 'git push origin dev'
-                bat 'git branch -d ${env.GIT_BRANCH}'
+                bat "git branch -d ${env.GIT_BRANCH}"
             }
         }
         stage('User Acceptance') {
