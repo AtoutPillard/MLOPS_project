@@ -19,8 +19,10 @@ pipeline {
             }
         }
         stage('User Acceptance') {
-            input {
-                message 'Proceed to push to main'
+            steps {
+                input message {
+                    "Proceed to push to main"
+                }
             }
         }
         stage('Pushing to main') {
